@@ -1,0 +1,33 @@
+<div class="collection-img">
+    
+      {% for link in section.settings.menu.links %}
+       {% if link.url contains 'collections' %}
+<!--         {{ link.object.handle }} -->
+           <img src="{{ link.object.featured_image | img_url : origin }}" alt="{{ link.object.handle }}"> 
+    {{ link.object.handle }}
+        {% endif %}
+      {% endfor %}
+      
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Image",
+    "settings": [{
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      }],
+    "presets":[
+      {
+        "name":"Collection Images"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

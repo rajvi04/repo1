@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "97c3da1e-c7a1-4749-85a7-4d9432312da9": {
+      "type": "menu-drawer",
+      "blocks": {
+        "7a341722-4c13-4600-b2de-8f723d3653a1": {
+          "type": "menu_promotion",
+          "settings": {
+            "dropdown_link_title": "Cosmetics",
+            "collection": "babys",
+            "text": "Baby's",
+            "link_url": "shopify:\/\/collections\/babys"
+          }
+        },
+        "003b7f08-b981-45ed-9807-d88c8f55f334": {
+          "type": "menu_promotion",
+          "settings": {
+            "dropdown_link_title": "Cosmetics",
+            "collection": "bundles",
+            "text": "",
+            "link_url": ""
+          }
+        },
+        "8fd2a2b1-f246-4f14-bd0c-194580781414": {
+          "type": "menu_promotion",
+          "settings": {
+            "dropdown_link_title": "All",
+            "collection": "cosmetics",
+            "text": "",
+            "link_url": ""
+          }
+        },
+        "d3bfb371-b08b-4389-a1d0-9384a1188538": {
+          "type": "menu_promotion",
+          "settings": {
+            "dropdown_link_title": "Cosmetics",
+            "collection": "women",
+            "text": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "7a341722-4c13-4600-b2de-8f723d3653a1",
+        "003b7f08-b981-45ed-9807-d88c8f55f334",
+        "8fd2a2b1-f246-4f14-bd0c-194580781414",
+        "d3bfb371-b08b-4389-a1d0-9384a1188538"
+      ],
+      "settings": {
+        "menu": "main-menu"
+      }
+    },
+    "ff529439-f476-4f3a-aa5d-e25bbeecd816": {
+      "type": "collection-image",
+      "settings": {
+        "menu": "main-menu"
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Include clickable links to your collection pages to give customers an overview of your catalog.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 32
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "title": "Collections",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "97c3da1e-c7a1-4749-85a7-4d9432312da9",
+    "ff529439-f476-4f3a-aa5d-e25bbeecd816",
+    "rich-text",
+    "main"
+  ]
+}

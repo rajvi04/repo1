@@ -1,0 +1,40 @@
+<div class="collection-tab">
+  <div class="collection-tab-list">
+      {% for collection in collections %}
+          <li class="{% if forloop.index == 1 %}active{% endif %}"><a href="javascript:void(0)" data-attr="{{ collection.handle }}">{{ collection.title }}</a></li> 
+      {% endfor %}
+  </div>  
+
+  <div class="product-list">
+      {% for collection in collections %}
+        {% for product in collection.products %}
+            <div class="collection-products {% if forloop.parentloop.index == 1 %}active{% endif %} {{ collection.handle }}">
+              <a href="{{ product.url}}"> <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}"></a>
+
+                  <h4>{{ product.title }}</h4>
+
+              <p>{{ product.price | money }}</p>
+                </div>
+ 
+        {% endfor %}
+      {% endfor %}
+  </div>
+</div> 
+
+{% schema %}
+  {
+    "name": "Collection Tab",
+    "settings": [],
+    "presets":[
+      {
+        "name":"Collection Tab"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

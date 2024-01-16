@@ -1,0 +1,67 @@
+<style>
+  .product-content {
+    display: flex;
+}
+  .selected-img img {
+    width: 60%;
+    margin-left: 130px;
+}
+  .selected-title {
+    font-size: 45px;
+    font-weight: 800;
+    font-family: cursive;
+}
+</style>
+  
+<div class="feature-collection-sec">
+
+  <div class="product-content">
+    <div class="selected-img">
+     <img src="{{ section.settings.select_product.featured_image | img_url:'original' }}">
+    </div>
+
+    <div class="selected-product-content">
+        <div class="selected-title">
+          {{ section.settings.select_product.title}}
+        </div>
+
+        <div class="product-price">
+          {{ section.settings.selected_product.price | money }}
+        </div>
+
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+        <input type="submit" value="Add to cart" class="btn" />
+     </form>
+      
+    </div>
+  </div>
+    
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "settings": [
+      {
+        "type":"product",
+        "id":"select_product",
+        "label":"Select product"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

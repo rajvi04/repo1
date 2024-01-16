@@ -1,0 +1,38 @@
+.tab-link {
+    width: 5%;
+    min-height: 47px;
+    max-height: 40px;
+    cursor: pointer;
+}
+/* Tabs */
+.tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  overflow: auto;
+}
+
+.tabs-nav.tab-link:hover,
+.tabs-nav .tab-link.active {
+  background-color: white;
+}
+.tabs-nav a {
+  text-decoration: none;
+  color: #FFF;
+}
+.tab-content {
+  padding: 10px;
+  border: 5px solid white;
+  background-color: #FFF;
+}
+.tabs-content {
+        flex: 0 0 25%;
+    max-width: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-content .active {
+    display: block!important;
+}

@@ -1,0 +1,91 @@
+<div class="custom-menu"> 
+<nav>
+  <ul class="menu">
+    {%- for link in section.settings.menu.links -%}
+       <li><a href="{{ link.url }}">{{link.title}}</a>
+      <ul class="submenu children-menu">
+        
+          {%- for block in section.blocks -%}
+                {%- if block.settings.dropdown_link_title == link.title -%}
+                {%- assign image_column_count = image_column_count | plus: 1 -%}
+                <div class="sub-nav-list sub-nav-image-list">
+                  <div class="sub-nav-item">
+                    <a class="sub-nav-item-link" href="{{ block.settings.link_url }}">
+                      <div class="sub-nav-item-image"><img src="{{ block.settings.collection.featured_image | img_url : origin }}"></div>
+                      <div class="sub-nav-item-image-title">{{ block.settings.text }}</div>
+                    </a>
+                  </div>
+                </div>
+                {%- endif -%}
+          {%- endfor -%}
+
+        
+       {% for childlink in link.links %}
+         <li><a href="{{ childlink.url }}">{{ childlink.title }}</a>
+          <ul class="submenu grandchild-menu">
+           {% for grandchildlink in childlink.links %}
+                  <li><a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a></li>
+                  {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+</div>
+
+{% schema %}
+  {
+    "name": "Menu Drawer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      }
+    ],
+      "blocks": [{
+		"type": "menu_promotion",
+		"name": "Menu promotion",
+		"settings": [{
+				"type": "paragraph",
+				"content": "Menu promotions are shown in dropdown menus. They are not visible in the mobile menu."
+			},
+			{
+				"type": "text",
+				"id": "dropdown_link_title",
+				"label": "Dropdown link title",
+				"info": "Enter a dropdown menu item title to display the menu promotion on, e.g. 'Shop'. [Learn more](https://cleancanvas.co.uk/support/general/mega-menus#h_01EJB9WJN2QPHVTQPV8DCZQK07)"
+			},
+			{
+              "type": "collection",
+              "id": "collection",
+              "label": "Collection"
+            },
+			{
+				"type": "text",
+				"id": "text",
+				"label": "Text"
+			},
+			{
+				"type": "url",
+				"id": "link_url",
+				"label": "Link"
+			}
+		]
+	}],
+    "presets": [
+    {
+      "name": "Menu Drawer"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

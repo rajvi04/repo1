@@ -1,0 +1,61 @@
+<section id="shopify-section-{{ section.id }}">
+  <div class="tabbing">
+          <div class="main-tabbing-title">  
+                <h2>Collection Tabs</h2>
+          </div>
+           <div class="tabs">
+             	<div class="tabs-nav">         
+                  {% for block in section.blocks %}
+              		      <button class="tab-link {% if forloop.index == 1 %}active{% endif %}" href="#{{ forloop.index }}">{{ block.settings.collection }}</button>
+              	  {% endfor %}
+                </div>
+           </div>
+    </div>
+
+    <div class="tabbing-content">
+
+        {% for block in section.blocks %}
+                <div id="{{ forloop.index }}" class="tab-content {% if forloop.index == 1 %}active{% endif %}">
+                  <div class="tabs-content">
+                      {% for product in block.settings.collection.products %}
+                          <img src="{{ product.featured_image | img_url : 'medium' }}">
+                          <p>{{ product.title }}</p>
+                      {% endfor %}
+                </div>
+            
+                   </div>
+        {% endfor %}
+     
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Collection Tabbing",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Collection Tabs",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+    ],
+    "presets":[
+      {
+        "name":"Collection Tabbing"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
